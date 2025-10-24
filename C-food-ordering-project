@@ -1,0 +1,151 @@
+#include <stdio.h>
+int main() 
+{
+    int hotelChoice, categoryChoice, itemChoice, quantity;
+    float totalBill = 0;
+    char continueOrder = 'y';
+    
+    printf("Welcome to Food Delight!\n");
+    printf("Choose a hotel:\n");    //Display hotels
+    printf("1. Vasantha Bavan\n");
+    printf("2. Chettinad Hotel\n");
+    printf("3. Nayagara\n");
+    printf("4. Anandha Bavan\n");
+    printf("5. Grand Hotel\n");
+    printf("Enter your choice (1-5): ");
+    scanf("%d", &hotelChoice);
+
+    if (hotelChoice < 1 || hotelChoice > 5)   //Check for hotel selection
+{
+        printf("Hotel not in the list.\n");
+        return 0;
+    }
+
+    while (continueOrder == 'y' || continueOrder == 'Y') 
+     {
+        printf("\nChoose a category:\n");
+        printf("1. Vegetarian\n");
+        printf("2. Non-Vegetarian\n");
+        printf("3. Beverages\n");
+        printf("4. Snacks\n");
+        printf("5. Cuisines\n");
+        printf("Enter your choice (1-5): ");
+        scanf("%d", &categoryChoice);
+        
+//Use switch statement to display items based on the selected category and hotel
+switch (categoryChoice) 
+{
+            case 1:            // Vegetarian
+            printf("\nVegetarian Menu:\n");
+                printf("1. Paneer Butter Masala - Rs. 150\n");
+                printf("2. Vegetable Biryani - Rs. 120\n");
+                printf("Enter item choice: ");
+                scanf("%d", &itemChoice);
+                printf("Enter quantity: ");
+                scanf("%d", &quantity);
+//Calculate cost based on choice and quantity
+                if (itemChoice == 1)
+                    totalBill += 150 * quantity;
+                else if (itemChoice == 2)
+                    totalBill += 120 * quantity;
+                    else
+                    printf("Item not in the list.\n");
+                    break;
+
+            case 2:        // Non-Vegetarian
+                printf("\nNon-Vegetarian Menu:\n");
+                printf("1. Chicken Curry - Rs. 200\n");
+                printf("2. Fish Fry - Rs. 180\n");
+                printf("Enter item choice: ");
+                scanf("%d", &itemChoice);
+                printf("Enter quantity: ");
+                scanf("%d", &quantity);
+
+                if (itemChoice == 1)
+                    totalBill += 200 * quantity;
+                else if (itemChoice == 2)
+                    totalBill += 180 * quantity;
+                else
+                    printf("Item not in the list.\n");
+                break;
+
+            case 3:    // Beverages
+                printf("\nBeverages Menu:\n");
+                printf("1. Coffee - Rs. 50\n");
+                printf("2. Tea - Rs. 30\n");
+                printf("Enter item choice: ");
+                scanf("%d", &itemChoice);
+                printf("Enter quantity: ");
+                scanf("%d", &quantity);
+
+                if (itemChoice == 1)
+                    totalBill += 50 * quantity;
+                else if (itemChoice == 2)
+                    totalBill += 30 * quantity;
+                else
+                    printf("Item not in the list.\n");
+                break;
+
+            case 4:   // Snacks
+                printf("\nSnacks Menu:\n");
+                printf("1. Samosa - Rs. 20\n");
+                printf("2. Sandwich - Rs. 40\n");
+                printf("Enter item choice: ");
+                scanf("%d", &itemChoice);
+                printf("Enter quantity: ");
+                scanf("%d", &quantity);
+
+                if (itemChoice == 1)
+                    totalBill += 20 * quantity;
+                else if (itemChoice == 2)
+                    totalBill += 40 * quantity;
+                else
+                    printf("Item not in the list.\n");
+                break;
+
+            case 5:    // Cuisines
+                printf("\nCuisines Menu:\n");
+                printf("1. Italian Pasta - Rs. 250\n");
+                printf("2. Mexican Tacos - Rs. 220\n");
+                printf("Enter item choice: ");
+                scanf("%d", &itemChoice);
+                printf("Enter quantity: ");
+                scanf("%d", &quantity);
+
+                if (itemChoice == 1)
+                    totalBill += 250 * quantity;
+                else if (itemChoice == 2)
+                    totalBill += 220 * quantity;
+                else
+                    printf("Item not in the list.\n");
+                break;
+
+            default:
+                printf("Category not in the list.\n");
+                break;
+        }
+       //To continue ordering
+        printf("\nDo you want to order more? (y/n): "); 
+        scanf(" %c", &continueOrder);
+    }
+
+    printf("\nTotal Bill: Rs. %.2f\n", totalBill);
+    
+    int paymentMethod;
+    printf("Choose payment method:\n");  //Payment Option
+    printf("1. Credit Card\n");
+    printf("2. Debit Card\n");
+    printf("Enter your choice (1-2): ");
+    scanf("%d", &paymentMethod);
+
+    if (paymentMethod == 1 || paymentMethod == 2) {
+        printf("Your order has been placed successfully!\n"); //Order Placed
+    } 
+   else
+ {
+        printf("Invalid payment method.\n");
+    }
+
+    return 0;
+}
+
